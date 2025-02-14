@@ -1,4 +1,4 @@
-import { cake } from "../assets";
+import { abs01, cake } from "../assets";
 import TitleText from "../components/TitleText";
 
 const About = () => {
@@ -7,7 +7,7 @@ const About = () => {
       {/* Left Content */}
       <div className="text-center flex flex-col items-center md:items-start md:text-left max-w-xl">
         <TitleText title="About Us" />
-        <p className="my-4 text-xs">
+        <p className="my-4 text-xs md:text-base">
           At Talent Hub, we believe in the power of education to unlock
           potential and create opportunities. Our diverse range of vocational
           training programs includes Cookery, Bakery, Cake Decoration, Beauty
@@ -16,27 +16,39 @@ const About = () => {
           need to achieve their dreams and make a meaningful impact in their
           communities.
         </p>
-        <div className="grid grid-cols-2 grid-rows-1 gap-2 ">
-          <div className="bg-blueLight rounded-lg flex flex-col gap-3 p-4">
-            <h1 className="text-2xl font-semibold">Our Vision</h1>
-            <p className="text-xs">
+        <div className="grid grid-cols-2 text-left grid-rows-1 gap-2 ">
+          <div className="bg-blueLight rounded-lg flex flex-col gap-3 p-4 relative overflow-hidden">
+            <h1 className="md:text-2xl text-lg font-semibold z-20 relative">
+              Our Vision
+            </h1>
+            <p className="text-xs z-20 relative">
               To be the leading and most productive training provider in Sri
               Lanka. Supporting women&apos;s empowerment and nation building
               through skill development
             </p>
+            <div className="absolute w-full h-full top-0 left-0 z-10 opacity-30">
+              <img src={abs01} alt="abstract" className="object-cover" />
+            </div>
           </div>
-          <div className="bg-redLight rounded-lg flex flex-col gap-3 p-4">
-            <h1 className="text-2xl font-semibold">Our Mission</h1>
-            <p className="text-xs">
+          <div className="bg-redLight text-left rounded-lg flex flex-col gap-3 p-4 relative overflow-hidden">
+            <h1 className="md:text-2xl text-lg font-semibold z-20 relative">
+              Our Mission
+            </h1>
+            <p className="text-xs z-20 relative">
               To provide young and adult women with hands-on knowledge and skill
               training, to increase competency with national & international
               professional standards, and to improve women&apos;s employability
               and self-sustainability
             </p>
+            <div className="absolute w-full h-full top-0 left-0 z-10 opacity-30">
+              <img src={abs01} alt="abstract" className="object-cover" />
+            </div>
           </div>
-          <div className="col-span-2 bg-yellowLight rounded-lg flex flex-col gap-5 p-4">
-            <h1 className="text-2xl font-semibold">Our Vision</h1>
-            <ul className="text-xs flex flex-col gap-1">
+          <div className="col-span-2 text-left bg-yellowLight rounded-lg flex flex-col gap-5 p-4 relative overflow-hidden">
+            <h1 className="md:text-2xl text-lg font-semibold z-20 relative">
+              Our Vision
+            </h1>
+            <ul className="text-xs flex flex-col gap-1 z-20 relative">
               <li>
                 <span className="font-semibold">Competency</span> - Enhancing
                 competency with practical and hands-on experience.
@@ -60,6 +72,9 @@ const About = () => {
                 team work to achieve results in synergy.
               </li>
             </ul>
+            <div className="absolute w-full h-full top-0 left-0 z-10 opacity-30">
+              <img src={abs01} alt="abstract" className="object-cover" />
+            </div>
           </div>
         </div>
       </div>
