@@ -1,13 +1,36 @@
 import { abs01, cake } from "../assets";
 import TitleText from "../components/TitleText";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+  useGSAP(() => {
+    gsap.from(".about-text", {
+      y: 25,
+      opacity: 0,
+      stagger: 0.3,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#about",
+        start: "bottom, bottom",
+      },
+    });
+  }, []);
+
   return (
-    <section className="flex md:h-[100vh] h-auto flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-12">
+    <section
+      id="about"
+      className="flex h-auto flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-12"
+    >
       {/* Left Content */}
       <div className="text-center flex flex-col items-center md:items-start md:text-left max-w-xl">
-        <TitleText title="About Us" />
-        <p className="my-4 text-xs md:text-base">
+        <div className="about-text">
+          <TitleText title="About Us" />
+        </div>
+        <p className="my-4 text-xs md:text-base about-text">
           At Talent Hub, we believe in the power of education to unlock
           potential and create opportunities. Our diverse range of vocational
           training programs includes Cookery, Bakery, Cake Decoration, Beauty
@@ -17,7 +40,7 @@ const About = () => {
           communities.
         </p>
         <div className="grid grid-cols-2 text-left grid-rows-1 gap-2 ">
-          <div className="bg-blueLight rounded-lg flex flex-col gap-3 p-4 relative overflow-hidden">
+          <div className="bg-blueLight rounded-lg flex flex-col gap-3 p-4 relative overflow-hidden about-text">
             <h1 className="md:text-2xl text-lg font-semibold z-20 relative">
               Our Vision
             </h1>
@@ -26,11 +49,15 @@ const About = () => {
               Lanka. Supporting women&apos;s empowerment and nation building
               through skill development
             </p>
-            <div className="absolute w-full h-full top-0 left-0 z-10 opacity-30">
-              <img src={abs01} alt="abstract" className="object-cover" />
+            <div className="absolute w-full h-full overflow-hidden top-0 left-0 z-10 opacity-30">
+              <img
+                src={abs01}
+                alt="abstract"
+                className="object-cover h-full w-full"
+              />
             </div>
           </div>
-          <div className="bg-redLight text-left rounded-lg flex flex-col gap-3 p-4 relative overflow-hidden">
+          <div className="bg-redLight text-left rounded-lg flex flex-col gap-3 p-4 relative overflow-hidden about-text">
             <h1 className="md:text-2xl text-lg font-semibold z-20 relative">
               Our Mission
             </h1>
@@ -41,10 +68,14 @@ const About = () => {
               and self-sustainability
             </p>
             <div className="absolute w-full h-full top-0 left-0 z-10 opacity-30">
-              <img src={abs01} alt="abstract" className="object-cover" />
+              <img
+                src={abs01}
+                alt="abstract"
+                className="object-cover h-full w-full"
+              />
             </div>
           </div>
-          <div className="col-span-2 text-left bg-yellowLight rounded-lg flex flex-col gap-5 p-4 relative overflow-hidden">
+          <div className="col-span-2 text-left bg-yellowLight rounded-lg flex flex-col gap-5 p-4 relative overflow-hidden about-text">
             <h1 className="md:text-2xl text-lg font-semibold z-20 relative">
               Our Vision
             </h1>
@@ -73,14 +104,18 @@ const About = () => {
               </li>
             </ul>
             <div className="absolute w-full h-full top-0 left-0 z-10 opacity-30">
-              <img src={abs01} alt="abstract" className="object-cover" />
+              <img
+                src={abs01}
+                alt="abstract"
+                className="object-cover h-full w-full"
+              />
             </div>
           </div>
         </div>
       </div>
 
       {/* Right Image */}
-      <div className="relative w-full md:w-1/2">
+      <div className="relative w-full md:w-1/2 about-text">
         <img
           src={cake}
           alt="Hero"

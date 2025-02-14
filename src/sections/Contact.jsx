@@ -79,7 +79,7 @@ const Contact = () => {
           Got a question about Talent Hub or our services? Reach out to us via
           the details below or by filling the form
         </p>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 md:text-base text-sm">
           <div className="flex gap-2 items-center">
             <FaPhone />
             <p>+94 72 127 5281 (during office hours – 9am - 5pm)</p>
