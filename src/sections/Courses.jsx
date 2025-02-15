@@ -30,6 +30,11 @@ import {
   DrawerTrigger,
 } from "@/components/ui/drawer";
 import { ApplyForm } from "@/components/ApplyForm";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const coursesList = [
   {
@@ -91,15 +96,38 @@ const coursesList = [
 ];
 
 const Courses = () => {
+  useGSAP(() => {
+    gsap.from(".course-text", {
+      y: 25,
+      opacity: 0,
+      stagger: 0.2,
+      ease: "power3.inOut",
+      scrollTrigger: {
+        trigger: "#courses",
+        start: "bottom, bottom",
+      },
+    });
+    gsap.from(".course-img", {
+      x: 55,
+      opacity: 0,
+      duration: 1,
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: "#courses",
+        start: "bottom, bottom",
+      },
+    });
+  }, []);
+
   return (
-    <div className="flex flex-col items-center mb-[100px]">
-      <TitleText title="Courses" />
-      <p className="md:w-2xl w-full px-4 md:px-0 text-center my-5">
+    <div id="courses" className="flex flex-col items-center mb-[100px]">
+      <TitleText title="Courses" addClass={"course-text"} />
+      <p className="md:w-2xl w-full px-4 md:px-0 text-center my-5 course-text">
         Our diverse range of programs are designed to equip our students with
         the skills and confidence they need to achieve their dreams and make a
         meaningful impact in their communities.
       </p>
-      <div className="mt-10 text-white w-full px-6 md:px-16 lg:px-30">
+      <div className="mt-10 text-white w-full px-6 md:px-16 lg:px-30 course-text">
         <Carousel
         // plugins={[
         //   Autoplay({
@@ -137,7 +165,7 @@ const Courses = () => {
           <CarouselNext className="text-black max-md:right-2" />
         </Carousel>
       </div>
-      <div className="mt-5">
+      <div className="mt-5 course-text">
         <Drawer>
           <DrawerTrigger asChild>
             <Button

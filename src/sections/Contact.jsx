@@ -24,6 +24,11 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import { ScrollTrigger } from "gsap/all";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const formSchema = z.object({
   fullName: z.string(),
@@ -65,34 +70,59 @@ const Contact = () => {
     }, 3000);
   }
 
+  useGSAP(() => {
+    gsap.from(".contact-right", {
+      y: 25,
+      opacity: 0,
+      ease: "power3.inOut",
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "bottom, bottom",
+      },
+    });
+    gsap.from(".contact-left", {
+      x: -55,
+      opacity: 0,
+      stagger: 0.2,
+      ease: "power3.inOut",
+      scrollTrigger: {
+        trigger: "#contact",
+        start: "bottom, bottom",
+      },
+    });
+  }, []);
+
   return (
-    <section className="flex bg-redTheme text-white flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-12">
+    <section
+      id="contact"
+      className="flex bg-redTheme text-white flex-col md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-12"
+    >
       {/* Left Content */}
       <div className="text-center flex flex-col items-center md:items-start md:text-left max-w-xl">
-        <div className="relative">
+        <div className="relative contact-left">
           <h1 className="font-bold relative z-20 text-3xl">Contact Us</h1>
           <div
             className={`absolute z-10 left-[-8px] top-0 w-[100px] h-[35px] bg-[#4d0215] rounded-lg rotate-[-8deg]`}
           ></div>
         </div>
-        <p className="my-4 text-xs md:text-base">
+        <p className="my-4 text-xs md:text-base contact-left">
           Got a question about Talent Hub or our services? Reach out to us via
           the details below or by filling the form
         </p>
         <div className="flex flex-col gap-1 md:text-base text-sm">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center contact-left">
             <FaPhone />
             <p>+94 72 127 5281 (during office hours – 9am - 5pm)</p>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center contact-left">
             <FaLocationDot />
             <p>658/70, Mahawela Gardens, Dematagoda, Colombo-09</p>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center contact-left">
             <FaEnvelope />
             <p>talenthub101@gmail.com</p>
           </div>
-          <div className="flex gap-4 mt-5 items-center cursor-pointer">
+          <div className="flex gap-4 mt-5 items-center cursor-pointer contact-left">
             <a href="https://www.facebook.com/talenthub101">
               <FaFacebook />
             </a>
@@ -107,7 +137,7 @@ const Contact = () => {
       </div>
 
       {/* Right Image */}
-      <div className="relative w-full md:w-1/2 max-sm:mt-10 flex max-sm:justify-center">
+      <div className="relative w-full md:w-1/2 max-sm:mt-10 flex max-sm:justify-center contact-right">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.59263875382!2d79.87959149999999!3d6.939191199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae259a8e1f40bfd%3A0xc243481113fd8cc4!2sTalent%20Hub!5e0!3m2!1sen!2slk!4v1739546801921!5m2!1sen!2slk"
           width="100%"

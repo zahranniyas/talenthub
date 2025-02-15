@@ -7,14 +7,20 @@ const Hero = () => {
     gsap.from(".hero-text", {
       y: 25,
       opacity: 0,
-      stagger: 0.3,
+      stagger: 0.2,
+      ease: "power3.inOut",
+    });
+    gsap.from(".hero-img", {
+      x: 55,
+      duration: 2,
+      opacity: 0,
       ease: "power1.inOut",
     });
   }, []);
 
   return (
     <section
-      className="flex md:h-[100vh] h-auto flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-12"
+      className="flex h-[100vh] flex-col-reverse md:flex-row items-center justify-between px-6 md:px-16 lg:px-24 py-12"
       style={{
         backgroundImage: `url(${heroBg})`,
         backgroundPosition: "center",
@@ -38,17 +44,20 @@ const Hero = () => {
           Our diverse range of programs include{" "}
           <span className="font-yesteryear ml-1 text-2xl">Cookery</span>
         </p>
-        <button className="hero-text mt-6 px-6 py-3 bg-redTheme text-white rounded-lg hover:bg-blueTheme transition-all cursor-pointer">
+        <a
+          href="#about"
+          className="hero-text mt-6 px-6 py-3 bg-redTheme text-white rounded-lg hover:bg-blueTheme transition-colors cursor-pointer"
+        >
           Get Started
-        </button>
+        </a>
       </div>
 
       {/* Right Image */}
-      <div className="relative w-full md:w-1/2 max-sm:mb-5">
+      <div className="relative w-full md:w-[45%] max-sm:mb-5">
         <img
           src={heroImg}
           alt="Hero"
-          className="w-full max-w-md mx-auto md:max-w-none shadow-2xl rounded-4xl hero-text"
+          className="w-full max-w-xs mx-auto md:max-w-none shadow-2xl rounded-4xl hero-img"
         />
       </div>
     </section>

@@ -11,7 +11,17 @@ const About = () => {
     gsap.from(".about-text", {
       y: 25,
       opacity: 0,
-      stagger: 0.3,
+      stagger: 0.2,
+      ease: "power3.inOut",
+      scrollTrigger: {
+        trigger: "#about",
+        start: "bottom, bottom",
+      },
+    });
+    gsap.from(".about-img", {
+      x: 55,
+      opacity: 0,
+      duration: 1,
       ease: "power1.inOut",
       scrollTrigger: {
         trigger: "#about",
@@ -27,9 +37,7 @@ const About = () => {
     >
       {/* Left Content */}
       <div className="text-center flex flex-col items-center md:items-start md:text-left max-w-xl">
-        <div className="about-text">
-          <TitleText title="About Us" />
-        </div>
+        <TitleText title="About Us" addClass={"about-text"} />
         <p className="my-4 text-xs md:text-base about-text">
           At Talent Hub, we believe in the power of education to unlock
           potential and create opportunities. Our diverse range of vocational
@@ -49,7 +57,7 @@ const About = () => {
               Lanka. Supporting women&apos;s empowerment and nation building
               through skill development
             </p>
-            <div className="absolute w-full h-full overflow-hidden top-0 left-0 z-10 opacity-30">
+            <div className="absolute w-full h-full overflow-hidden top-0 left-0 z-10 opacity-10">
               <img
                 src={abs01}
                 alt="abstract"
@@ -67,7 +75,7 @@ const About = () => {
               professional standards, and to improve women&apos;s employability
               and self-sustainability
             </p>
-            <div className="absolute w-full h-full top-0 left-0 z-10 opacity-30">
+            <div className="absolute w-full h-full top-0 left-0 z-10 opacity-10">
               <img
                 src={abs01}
                 alt="abstract"
@@ -103,7 +111,7 @@ const About = () => {
                 team work to achieve results in synergy.
               </li>
             </ul>
-            <div className="absolute w-full h-full top-0 left-0 z-10 opacity-30">
+            <div className="absolute w-full h-full top-0 left-0 z-10 opacity-10">
               <img
                 src={abs01}
                 alt="abstract"
@@ -115,7 +123,7 @@ const About = () => {
       </div>
 
       {/* Right Image */}
-      <div className="relative w-full md:w-1/2 about-text">
+      <div className="relative w-full md:w-1/2 about-img">
         <img
           src={cake}
           alt="Hero"

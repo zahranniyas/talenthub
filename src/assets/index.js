@@ -9,8 +9,12 @@ import cakeDecor02 from "./images/cake-decor-02.png";
 import cakeDecor03 from "./images/cake-decor-03.png";
 import henna01 from "./images/henna-01.png";
 import baker01 from "./images/baker-01.png";
+
 import cityg01 from "./images/cityg-01.png";
 import wilton01 from "./images/wilton-01.png";
+import tvec from "./images/tvec.png";
+import nvq from "./images/nvq.png";
+
 import abs01 from "./images/abs-01.jpg";
 
 import faqRed from "./images/faq-red.png";
@@ -36,4 +40,6 @@ export {
   cityg01,
   wilton01,
   abs01,
+  tvec,
+  nvq,
 };

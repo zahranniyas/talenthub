@@ -8,10 +8,12 @@ import ComingSoon from "./components/ComingSoon";
 import Apply from "./sections/Apply";
 import Contact from "./sections/Contact";
 import Footer from "./sections/Footer";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
-    <div className="font-urbanist">
+    <div className="font-urbanist overflow-x-hidden">
+      <Navbar />
       <Hero />
       <Quote />
       <About />
