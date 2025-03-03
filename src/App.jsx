@@ -13,7 +13,7 @@ import { Navbar } from "./components/Navbar";
 function App() {
   return (
     <div className="font-urbanist overflow-x-hidden">
-      <Navbar />
+      {/* <Navbar />
       <Hero />
       <Quote />
       <About />
@@ -21,9 +21,9 @@ function App() {
       <Faq />
       <Contact />
       <Footer />
-      {/*<Apply /> */}
-      {/* <Testimonial /> */}
-      {/* <ComingSoon /> */}
+      <Apply />
+      <Testimonial /> */}
+      <ComingSoon />
     </div>
   );
 }
